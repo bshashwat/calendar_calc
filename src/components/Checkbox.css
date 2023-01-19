@@ -1,10 +1,20 @@
 .Checkbox {
+  display: inline-block;
   align-items: center;
-  margin-top: 10px;
+  justify-self: center;
+  margin: 10px;
   padding: 15px;
   background-color: white;
   border: 0px;
   border-radius: 5px;
   height: 20px;
-  width: 200px;
+  width: 300px;
+}
+
+.Checkbox input {
+  align-items: center;
+  justify-self: center;
+  margin: 10px;
+  margin-top: 5px;
+  padding: 10px;
 }

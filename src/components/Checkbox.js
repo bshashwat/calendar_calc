@@ -15,7 +15,7 @@ const Checkbox = (props) => {
   const checkBoxThreeHandler = () => {
     setIsCheckedThree(!isCheckedThree);
   };
-  const changeHandler = () => {
+  const changeHandler = (event) => {
     const years = {
       one: isCheckedOne,
       two: isCheckedTwo,
@@ -27,10 +27,9 @@ const Checkbox = (props) => {
   };
 
   return (
-    <form className="Checkbox" onChange={changeHandler}>
+    <div className="Checkbox" onChange={changeHandler}>
       <input
         type="checkbox"
-        value="2021"
         checked={isCheckedOne}
         onChange={checkBoxOneHandler}
       />
@@ -49,7 +48,7 @@ const Checkbox = (props) => {
         onChange={checkBoxThreeHandler}
       />
       2023
-    </form>
+    </div>
   );
 };
 export default Checkbox;
