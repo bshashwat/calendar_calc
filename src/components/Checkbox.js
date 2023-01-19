@@ -30,20 +30,21 @@ const Checkbox = (props) => {
     <div className="Checkbox" onChange={changeHandler}>
       <input
         type="checkbox"
+        value={2021}
         checked={isCheckedOne}
         onChange={checkBoxOneHandler}
       />
       2021
       <input
         type="checkbox"
-        value="2022"
+        value={2022}
         checked={isCheckedTwo}
         onChange={checkBoxTwoHandler}
       />
       2022
       <input
         type="checkbox"
-        value="2023"
+        value={2023}
         checked={isCheckedThree}
         onChange={checkBoxThreeHandler}
       />

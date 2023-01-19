@@ -3,44 +3,49 @@ import "./YearCard.css";
 
 const YearCard = (props) => {
   const [isMonth, setIsMonth] = useState("W");
-  const [isDisabled, setIsDisabled] = useState(false);
+  const [isDisabled1, setIsDisabled1] = useState(false);
+  const [isDisabled2, setIsDisabled2] = useState(false);
+  const [isDisabled3, setIsDisabled3] = useState(false);
+  const [isDisabled4, setIsDisabled4] = useState(false);
+
   const [numberOne, setNumberOne] = useState(0);
   const [numberTwo, setNumberTwo] = useState(0);
   const [numberThree, setNumberThree] = useState(0);
   const [numberFour, setNumberFour] = useState(0);
 
-  const handleInputOne = (event) => {
-    setNumberOne(event.target.value);
-    setIsDisabled(false);
-    //document.getElementById(event.value.id).disabled = false;
+  const handleInputChange = (event) => {
+    const name = event.target.name;
+
+    if (name === "one") {
+      setNumberOne(parseInt(event.target.value));
+      setIsDisabled2(true);
+      setIsDisabled3(true);
+      setIsDisabled4(true);
+    } else if (name === "two") {
+      setNumberTwo(parseInt(event.target.value));
+      setIsDisabled1(true);
+      setIsDisabled3(true);
+      setIsDisabled4(true);
+    } else if (name === "three") {
+      setNumberThree(parseInt(event.target.value));
+      setIsDisabled1(true);
+      setIsDisabled2(true);
+      setIsDisabled4(true);
+    } else {
+      setNumberFour(parseInt(event.target.value));
+      setIsDisabled1(true);
+      setIsDisabled2(true);
+      setIsDisabled3(true);
+    }
   };
 
-  const handleInputTwo = (event) => {
-    setNumberTwo(event.target.value);
-    setIsDisabled(false);
-    //document.getElementById(event.value.id).disabled = false;
-  };
-
-  const handleInputThree = (event) => {
-    setNumberThree(event.target.value);
-    setIsDisabled(false);
-    //document.getElementById(event.value.id).disabled = false;
-  };
-
-  const handleInputFour = (event) => {
-    setNumberFour(event.target.value);
-    setIsDisabled(false);
-    //document.getElementById(event.value.id).disabled = false;
-  };
   const clickHandler = (event) => {
-    event.preventDefault();
-
     var avg = (numberFour + numberOne + numberThree + numberTwo) / 4;
 
-    setNumberOne(numberOne + Math.floor(Math.random() * 200) - 100);
-    setNumberTwo(numberTwo + Math.floor(Math.random() * 200) - 100);
-    setNumberThree(numberThree + Math.floor(Math.random() * 200) - 100);
-    setNumberFour(numberFour + Math.floor(Math.random() * 200) - 100);
+    setNumberOne(numberOne + Math.floor(Math.random() * 201) - 100);
+    setNumberTwo(numberTwo + Math.floor(Math.random() * 201) - 100);
+    setNumberThree(numberThree + Math.floor(Math.random() * 201) - 100);
+    setNumberFour(numberFour + Math.floor(Math.random() * 201) - 100);
   };
 
   const resetHandler = (event) => {
@@ -48,6 +53,11 @@ const YearCard = (props) => {
     setNumberTwo(0);
     setNumberThree(0);
     setNumberFour(0);
+
+    setIsDisabled1(false);
+    setIsDisabled2(false);
+    setIsDisabled3(false);
+    setIsDisabled4(false);
   };
 
   const monthChangeHandler = (event) => {
@@ -66,11 +76,11 @@ const YearCard = (props) => {
         <option value="A">Sep-Dec</option>
       </select>
       <input
-        id="one"
+        name="one"
         type="number"
         value={numberOne}
-        onChange={handleInputOne}
-        disabled={isDisabled}
+        onChange={handleInputChange}
+        disabled={isDisabled1}
       />
       {(() => {
         switch (isMonth) {
@@ -83,12 +93,11 @@ const YearCard = (props) => {
         }
       })()}
       <input
-        id="two"
+        name="two"
         type="number"
-        defaultValue={0}
         value={numberTwo}
-        onChange={handleInputTwo}
-        disabled={isDisabled}
+        onChange={handleInputChange}
+        disabled={isDisabled2}
       />
       {(() => {
         switch (isMonth) {
@@ -101,12 +110,11 @@ const YearCard = (props) => {
         }
       })()}
       <input
-        id="three"
+        name="three"
         type="number"
-        defaultValue={0}
         value={numberThree}
-        onChange={handleInputThree}
-        disabled={isDisabled}
+        onChange={handleInputChange}
+        disabled={isDisabled3}
       />
       {(() => {
         switch (isMonth) {
@@ -119,12 +127,11 @@ const YearCard = (props) => {
         }
       })()}
       <input
-        id="four"
+        name="four"
         type="number"
-        defaultValue={0}
         value={numberFour}
-        onChange={handleInputFour}
-        disabled={isDisabled}
+        onChange={handleInputChange}
+        disabled={isDisabled4}
       />
       {(() => {
         switch (isMonth) {
